@@ -22,6 +22,7 @@ export default function RootLayout({ children }: { children: any }) {
     <html lang="en">
       <head>
         <ColorSchemeScript />
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"></link>
         <link rel="shortcut icon" href="/favicon.png" />
         <meta
           name="viewport"

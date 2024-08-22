@@ -20,7 +20,7 @@ export function Providers({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const queryEnv = searchParams.get('env');
   const [client] = useState(new QueryClient());
-  const [env, setEnv] = useState<Env>((queryEnv === 'mainnet' || queryEnv === 'devnet') ? queryEnv : 'mainnet');
+  const [env, setEnv] = useState<Env>('mainnet');
   const wallets = useMemo(
     () => [
       new PhantomWalletAdapter(),
@@ -47,11 +47,6 @@ export function Providers({ children }: { children: ReactNode }) {
     switch (env) {
       case 'mainnet':
         return process.env.NEXT_PUBLIC_MAINNET_RPC_URL;
-      case 'localhost':
-        return 'http://localhost:8899';
-      case 'devnet':
-      default:
-        return process.env.NEXT_PUBLIC_DEVNET_RPC_URL;
     }
   }, [env]);
 
